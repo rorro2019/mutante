@@ -1,18 +1,22 @@
 package com.mutante.mutante.Service;
 
+import com.mutante.mutante.Exception.RequestValidationException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class MutanteService {
 
-    public Boolean isMutante( String  entrada){
+    public Boolean isMutante( String  entrada) {
         int totalDna = 0;
         String[] dna = entrada.split(",");
+        this.validation(dna);
         //return isMutant(dna);
         int dim= dna[0].length();
         String[][] matriz = new String[dim][dim];
         matriz = cargarMatriz(dna,dim);
+
+
 
         totalDna =totalDna+ controlHorizontal(matriz, dim);
      /**   if ((totalDna)>1){
@@ -39,6 +43,41 @@ public class MutanteService {
       }
       return matriz;
   }
+
+    private void validation( String[] dna){
+        int longitud= dna[0].length();
+        int dim =dna.length;
+        if (dim != longitud){
+            throw new RequestValidationException("Error, no ingreso una cadena de N x N");
+        }
+       for (int i=0; i < dna.length ; i++) {
+
+           if (dna[i].trim().length() != longitud ) {
+               throw new RequestValidationException("Error, no ingreso una cadena de N x N");
+           }
+           char[] charSearch = {'A','T','C','G'};
+
+           for(int z=0; z<dna[i].trim().length(); z++)
+           {
+               char chr = dna[i].trim().charAt(z);
+               boolean band=false;
+               for(int j=0; j<charSearch.length; j++)
+               {
+                   if(charSearch[j] == Character.toUpperCase(chr))
+                   {
+                       band=true;
+                   }
+               }
+               if (band==false){
+                   throw new RequestValidationException("Error, caracter  no valido");
+               }
+           }
+
+           }
+
+       }
+
+
 
     private int controlHorizontal(String[][] matriz ,int dim){
        int totalDna=0;
