@@ -19,15 +19,21 @@ public class MutanteService {
 
 
         totalDna =totalDna+ controlHorizontal(matriz, dim);
-     /**   if ((totalDna)>1){
+         if ((totalDna)>1){
             return true;
-        }**/
+        }
         totalDna =totalDna+ controlVertical(matriz, dim);
-
+        if ((totalDna)>1){
+            return true;
+        }
         totalDna =totalDna+ contarIzquierdaDerecha(matriz, dim);
-
+        if ((totalDna)>1){
+            return true;
+        }
         totalDna =totalDna+  contarDerechaIzquierda(matriz, dim);
-
+        if ((totalDna)>1){
+            return true;
+        }
 
         return false;
     }

@@ -22,12 +22,12 @@ public class MutanteController {
 
 
     @PostMapping("/mutante")
-    public ResponseEntity<Void> isMutante(@RequestBody String  entrada){
+    public boolean isMutante(@RequestBody String  entrada){
         boolean isMutant = mutanteService.isMutante(entrada);
         if (isMutant) {
-            return ResponseEntity.ok().build();
+            return isMutant;
         } else {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+            return false;
         }
     }
 

@@ -22,3 +22,11 @@ Ejemplo (Caso mutante):
 
 String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
 En este caso el llamado a la función isMutant(dna) devuelve “true”.
+
+
+Ejemplo de uso : 
+ejecutar el proyecto, el mismo correra en el puerto 8090.
+Dirigirse a la siguiente ruta: http://localhost:8090/swagger-ui.html# 
+
+utilizar el controller isMutanteUsingPOST 
+y pasar un entrada como la siguiente: ATGCGA,CAGTGC,TTATGT,AGAAGG,CCCCTA,TCACTG 
