@@ -29,4 +29,26 @@ ejecutar el proyecto, el mismo correra en el puerto 8090.
 Dirigirse a la siguiente ruta: http://localhost:8090/swagger-ui.html# 
 
 utilizar el controller isMutanteUsingPOST 
-y pasar un entrada como la siguiente: ATGCGA,CAGTGC,TTATGT,AGAAGG,CCCCTA,TCACTG 
+y pasar una entrada como la siguiente: ATGCGA,CAGTGC,TTATGT,AGAAGG,CCCCTA,TCACTG 
+![image](https://user-images.githubusercontent.com/48495264/170611903-24267fb9-3a11-4e3e-acb5-d9130311c267.png)
+
+Se ejecuta y nos devolvera true:
+![image](https://user-images.githubusercontent.com/48495264/170612020-4f937993-adeb-4e65-a299-2f97df8a0b53.png)
+
+
+Para la siguiente entrada : TTGCGA,CAGTGC,TTATGT,AGAAGG,CCTCTA,TCACTG 
+nos devolvera false : 
+![image](https://user-images.githubusercontent.com/48495264/170612516-8460beae-cc46-443a-8cd5-57591b4e4126.png)
+
+
+Validaciones :
+ -Control NxN :
+   ENTRADA: ATGCGA,CAGTGC,TTATGT,AGAAGG,CCCCTA,TCACT o ATGCGA,CAGTGC,TTATGT,AGAAGG,CCCCTA
+   Respuesta : ![image](https://user-images.githubusercontent.com/48495264/170612149-e7a7f174-8334-4e52-a315-da9c95a38028.png)
+   
+ -Control de Strings :
+   ENTRADA : ATGCGA,CAGTGC,TTATGT,AGAAGG,CCCCTA,TCACTX
+   Respuesta : ![image](https://user-images.githubusercontent.com/48495264/170612376-3f2e744c-cc90-4f84-a671-a7d390a4bd02.png)
+
+
+
